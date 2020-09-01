@@ -30,6 +30,8 @@
 		CD3DA9EA24FE285600A5DDA2 /* BinarySerializer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinarySerializer.hpp; sourceTree = "<group>"; };
 		CD3DA9EB24FE6F4900A5DDA2 /* TypeMap.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TypeMap.hpp; sourceTree = "<group>"; };
 		CD3DA9EC24FE70AF00A5DDA2 /* BinaryDeserializer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BinaryDeserializer.hpp; sourceTree = "<group>"; };
+		CD55FB0424FE9A760000AA72 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		CD55FB0524FE9A760000AA72 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,8 @@
 		CD08FB2824FBFA5500BE3389 = {
 			isa = PBXGroup;
 			children = (
+				CD55FB0424FE9A760000AA72 /* LICENSE */,
+				CD55FB0524FE9A760000AA72 /* README.md */,
 				CD08FB3324FBFA5500BE3389 /* BinarySerializer */,
 				CD08FB3224FBFA5500BE3389 /* Products */,
 			);
