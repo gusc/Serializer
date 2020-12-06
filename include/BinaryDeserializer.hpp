@@ -1,6 +1,6 @@
 //
 //  BinaryDeserializer.hpp
-//  BinarySerializer
+//  Serializer
 //
 //  Created by Gusts Kaksis on 01/09/2020.
 //  Copyright © 2020 Gusts Kaksis. All rights reserved.

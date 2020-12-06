@@ -1,6 +1,6 @@
 //
 //  BinaryUnpacker.h
-//  BinarySerializer
+//  Serializer
 //
 //  Created by Gusts Kaksis on 31/08/2020.
 //  Copyright © 2020 Gusts Kaksis. All rights reserved.

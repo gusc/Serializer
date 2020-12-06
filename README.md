@@ -1,4 +1,4 @@
-# BinarySerializer
+# Serializer
 
 Library for binary packing and serialization. Might be useful when working with remote systems or embedded hardware.
 

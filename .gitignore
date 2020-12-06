@@ -32,3 +32,6 @@
 *.app
 BinarySerializer.xcodeproj/project.xcworkspace
 BinarySerializer.xcodeproj/xcuserdata
+build/*
+*/build/*
+*.xcodeproj
