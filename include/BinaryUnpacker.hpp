@@ -74,25 +74,25 @@ BinaryUnpacker<TChar, TEnable>& BinaryUnpacker<TChar, TEnable>::operator>>(TValu
 }
 
 template<typename TChar>
-void from_pack(BinaryUnpacker<TChar>& unpacker, TChar& inValue)
+void from_pack(BinaryUnpacker<TChar>& unpacker, TChar& outValue)
 {
-    unpacker.read(&inValue, 1);
+    unpacker.read(&outValue, 1);
 }
 
 template<typename TChar,
          typename TValue>
-void from_pack(BinaryUnpacker<TChar>& unpacker, TValue& inValue)
+void from_pack(BinaryUnpacker<TChar>& unpacker, TValue& outValue)
 {
     TChar tmp[sizeof(TValue)];
     unpacker.read(&tmp[0], sizeof(TValue));
-    memcpy(&inValue, tmp, sizeof(TValue));
+    memcpy(&outValue, tmp, sizeof(TValue));
 }
 
 template<typename TChar,
          typename TValue>
-void from_pack(BinaryUnpacker<TChar>& unpacker, std::vector<TValue>& inValue)
+void from_pack(BinaryUnpacker<TChar>& unpacker, std::vector<TValue>& outValue)
 {
-    for (auto& it : inValue)
+    for (auto& it : outValue)
     {
         unpacker >> *it;
     }

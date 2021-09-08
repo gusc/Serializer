@@ -13,9 +13,31 @@
 #include "BinarySerializer.hpp"
 #include "BinaryDeserializer.hpp"
 
+struct MyStruct {
+    int a;
+    bool b;
+};
+
+template<typename TChar>
+void to_pack(gusc::Serializer::BinaryPacker<TChar>& packer, const MyStruct& inValue)
+{
+    packer << inValue.a << inValue.b;
+}
+
+template<typename TChar>
+void from_pack(gusc::Serializer::BinaryUnpacker<TChar>& unpacker, MyStruct& outValue)
+{
+    unpacker >> outValue.a;
+    unpacker >> outValue.b;
+}
+
 int main(int argc, const char * argv[]) {
     
     // Packer tests
+    
+    MyStruct x = {
+        1, false
+    };
     
     std::vector<char> data;
     gusc::Serializer::BinaryPacker packer(data);
@@ -26,7 +48,8 @@ int main(int argc, const char * argv[]) {
            << 123
            << static_cast<unsigned>(1)
            << static_cast<size_t>(1234567890)
-           << static_cast<long>(987654321);
+           << static_cast<long>(987654321)
+           << x;
     std::cout << data.size() << '\n';
     
     gusc::Serializer::BinaryUnpacker unpacker(data);
@@ -38,8 +61,9 @@ int main(int argc, const char * argv[]) {
     unsigned f;
     size_t g;
     long h;
-    unpacker >> a >> b >> c >> d >> e >> f >> g >> h;
-    std::cout << a << '\n' << b << '\n' << c << '\n' << d << '\n' << e << '\n' << f << '\n' << g << '\n' << h << '\n';
+    MyStruct y;
+    unpacker >> a >> b >> c >> d >> e >> f >> g >> h >> y;
+    std::cout << a << '\n' << b << '\n' << c << '\n' << d << '\n' << e << '\n' << f << '\n' << g << '\n' << h << '\n' << y.a << ',' << y.b << '\n';
     
     // Serializer tests
     std::vector<uint8_t> data2;

@@ -28,7 +28,40 @@ unpacker >> c; // Should be 5
 
 Extended usage with custom data types:
 
-TODO
+```c++
+struct MyStruct {
+    int a;
+    bool b;
+};
+
+// This magic method allows to pack your custom data structure into byte stream
+template<typename TChar>
+void to_pack(gusc::Serializer::BinaryPacker<TChar>& packer, const MyStruct& inValue)
+{
+    packer << inValue.a << inValue.b;
+}
+
+// This magic method allows you to unpack yout custom data structure from byte stream
+template<typename TChar>
+void from_pack(gusc::Serializer::BinaryUnpacker<TChar>& unpacker, MyStruct& outValue)
+{
+    unpacker >> outValue.a;
+    unpacker >> outValue.b;
+}
+
+// Simply continue using stream operators
+
+MyStruct x = { 1, false };
+
+std::vector<char> data;
+gusc::Serializer::BinaryPacker packer(data);
+
+packer << x; // Pack MyStruct into data stream
+
+gusc::Serializer::BinaryUnpacker unpacker(data);
+
+unpacker >> x; // Unpack MyStruct from data stream
+```
 
 ### BinarySerializer and BinaryDeserializer
 
